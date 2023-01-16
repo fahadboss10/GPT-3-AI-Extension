@@ -43,7 +43,7 @@ public class ChatGPT extends AndroidNonvisibleComponent {
             @Override
             public void run () {
                 try {
-                    final String model = "text-ada-001";
+                    final String model = "text-davinci-003";
                     URL url = new URL("https://api.openai.com/v1/completions");
                     HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
                     httpConn.setRequestMethod("POST");
@@ -55,7 +55,7 @@ public class ChatGPT extends AndroidNonvisibleComponent {
                     if (informative) {
                         temperature = 0;
                     } else {
-                        temperature = 0.9;
+                        temperature = 0.7;
                     }
                     writer.write("{\n  \"model\": \"" + model + "\",\n  \"prompt\": \"" + prompt.replace("\"", "'") + "\",\n  \"temperature\": " + temperature + ",\n  \"max_tokens\": " + 
                     maxTokens + "\n}");
